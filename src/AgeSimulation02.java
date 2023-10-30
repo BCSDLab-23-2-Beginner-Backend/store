@@ -21,7 +21,7 @@ public class AgeSimulation02 {
         System.out.println(user.getName() + "(" + age + ")");
 
         if (isBirthDay) {
-            System.out.printf("%d세의 생일을 축하합니다.\n", age);
+            //System.out.printf("%d세의 생일을 축하합니다.\n", age);
             System.out.printf("%d번째 생일을 축하합니다.\n", age);
         }
 
