@@ -77,21 +77,13 @@ public class AgeSimulation02 {
 
         public boolean isUnderAge(LocalDate birth) {
             int age = getAge(birth);
-            return age < 19;
+            return age <= 19;
         }
 
         public int getAge(LocalDate birth) {
             LocalDate now = LocalDate.now();
 
-            int age = now.getYear() - birth.getYear();
-            age += isOverBirthDay(now, birth) ? 1 : 0;
-            return age;
-        }
-
-        private boolean isOverBirthDay(LocalDate now, LocalDate birth) {
-            if (now.getMonthValue() != birth.getMonthValue())
-                return now.getMonthValue() > birth.getMonthValue();
-            return now.getDayOfMonth() > birth.getDayOfMonth();
+            return now.getYear() - birth.getYear() + 1;
         }
 
         public boolean isBirthDay(LocalDate birth) {
