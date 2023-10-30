@@ -59,7 +59,7 @@ public class AgeSimulation02 {
         public UserRepository() {
             users.put(++sequence, new User("홍길동", LocalDate.of(1990, 1, 1)));
             users.put(++sequence,
-                new User("박한수", LocalDate.of(2000, LocalDate.now().getMonth(), LocalDate.now().getDayOfMonth())));
+                    new User("박한수", LocalDate.of(2000, LocalDate.now().getMonth(), LocalDate.now().getDayOfMonth())));
             users.put(++sequence, new User("강호동", LocalDate.of(2005, 6, 1)));
         }
 
@@ -76,23 +76,24 @@ public class AgeSimulation02 {
     public static class AgeCalculator {
 
         public boolean isUnderAge(LocalDate birth) {
+            LocalDate now = LocalDate.now();
             int age = getAge(birth);
-            return age < 19;
+//            age -= isOverBirthDay(now, birth) ? 1 : 0;
+            return age < 20;
         }
 
         public int getAge(LocalDate birth) {
             LocalDate now = LocalDate.now();
 
-            int age = now.getYear() - birth.getYear();
-            age += isOverBirthDay(now, birth) ? 1 : 0;
+            int age = now.getYear() - birth.getYear() + 1;
+//            age += isOverBirthDay(now, birth) ? 1 : 0;
             return age;
         }
-
-        private boolean isOverBirthDay(LocalDate now, LocalDate birth) {
-            if (now.getMonthValue() != birth.getMonthValue())
-                return now.getMonthValue() > birth.getMonthValue();
-            return now.getDayOfMonth() > birth.getDayOfMonth();
-        }
+//        private boolean isOverBirthDay(LocalDate now, LocalDate birth) {
+//            if (now.getMonthValue() != birth.getMonthValue())
+//                return now.getMonthValue() > birth.getMonthValue();
+//            return now.getDayOfMonth() > birth.getDayOfMonth();
+//        }
 
         public boolean isBirthDay(LocalDate birth) {
             LocalDate now = LocalDate.now();
@@ -100,3 +101,4 @@ public class AgeSimulation02 {
         }
     }
 }
+
