@@ -6,10 +6,10 @@ import java.util.Scanner;
 public class AgeSimulation01 {
     public static void main(String[] args) {
         //콘솔로부터 입력 받기
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
         System.out.print("아이디를 입력하세요 : ");
-        int inputId = scanner.nextInt();
+        int inputId = sc.nextInt();
 
         UserRepository userRepository = new UserRepository();
         User user = userRepository.findById(inputId);
