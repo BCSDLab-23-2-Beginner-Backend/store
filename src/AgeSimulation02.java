@@ -35,8 +35,8 @@ public class AgeSimulation02 {
     }
 
     public static class User {
-        private String name;
-        private LocalDate birth;
+        private final String name;
+        private final LocalDate birth;
 
         public User(String name, LocalDate birth) {
             this.name = name;
@@ -54,7 +54,7 @@ public class AgeSimulation02 {
 
     static class UserRepository {
         private static int sequence = 0;
-        private static Map<Integer, User> users = new HashMap<>();
+        private final static Map<Integer, User> users = new HashMap<>();
 
         public UserRepository() {
             users.put(++sequence, new User("홍길동", LocalDate.of(1990, 1, 1)));
@@ -63,10 +63,10 @@ public class AgeSimulation02 {
             users.put(++sequence, new User("강호동", LocalDate.of(2005, 6, 1)));
         }
 
-        public User save(User user) {
-            users.put(++sequence, user);
-            return user;
-        }
+//        public User save(User user) {
+//            users.put(++sequence, user);
+//            return user;
+//        }
 
         public User findById(int id) {
             return users.get(id);
