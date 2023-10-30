@@ -82,7 +82,7 @@ public class AgeSimulation02 {
 
         public int getAge(LocalDate birth) {
             LocalDate now = LocalDate.now();
-
+//
             int age = now.getYear() - birth.getYear() ;
             age += isOverBirthDay(now, birth) ? 1 : 0;
             return age;
