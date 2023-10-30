@@ -76,16 +76,14 @@ public class AgeSimulation02 {
     public static class AgeCalculator {
 
         public boolean isUnderAge(LocalDate birth) {
-            int age = getAge(birth);
-            return age < 19;
+            LocalDate now = LocalDate.now();
+            return getAge(birth)-(isOverBirthDay(now,birth)?0:1)<20;
         }
 
         public int getAge(LocalDate birth) {
             LocalDate now = LocalDate.now();
 
-            int age = now.getYear() - birth.getYear();
-            age += isOverBirthDay(now, birth) ? 1 : 0;
-            return age;
+            return now.getYear() - birth.getYear()+1;
         }
 
         private boolean isOverBirthDay(LocalDate now, LocalDate birth) {
