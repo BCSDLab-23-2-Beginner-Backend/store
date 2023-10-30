@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class AgeSimulation01 {
+public class AgeSimulation {
     public static void main(String[] args) {
         //콘솔로부터 입력 받기
         Scanner scanner = new Scanner(System.in);
