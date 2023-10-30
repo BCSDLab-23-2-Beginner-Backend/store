@@ -10,6 +10,9 @@ public class AgeSimulation01 {
 
         System.out.print("아이디를 입력하세요 : ");
         int inputId = scanner.nextInt();
+        int inputId2 = scanner.nextInt();
+
+
 
         UserRepository userRepository = new UserRepository();
         User user = userRepository.findById(inputId);
