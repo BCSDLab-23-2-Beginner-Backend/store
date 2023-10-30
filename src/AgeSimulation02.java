@@ -77,7 +77,7 @@ public class AgeSimulation02 {
 
         public boolean isUnderAge(LocalDate birth) {
             int age = getAge(birth);
-            return age < 20;
+            return age <= 19;
         }
 
         public int getAge(LocalDate birth) {
