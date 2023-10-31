@@ -98,11 +98,11 @@ public class AgeSimulation02 {
             return age;
         }
 
-        //private boolean isOverBirthDay(LocalDate now, LocalDate birth) {
-        //    if (now.getMonthValue() != birth.getMonthValue())
-        //        return now.getMonthValue() > birth.getMonthValue();
-        //    return now.getDayOfMonth() > birth.getDayOfMonth();
-        //}
+        private boolean isOverBirthDay(LocalDate now, LocalDate birth) {
+            if (now.getMonthValue() != birth.getMonthValue())
+                return now.getMonthValue() > birth.getMonthValue();
+            return now.getDayOfMonth() > birth.getDayOfMonth();
+        }
 
         public boolean isBirthDay(LocalDate birth) {
             LocalDate now = LocalDate.now();
