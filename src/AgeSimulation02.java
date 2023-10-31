@@ -4,6 +4,4 @@ public class AgeSimulation02 {
         new myController();
     }
 
-
-
 }
