@@ -5,11 +5,7 @@ import java.util.Scanner;
 
 public class AgeSimulation02 {
     public static void main(String[] args) {
-        //콘솔로부터 입력 받기
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.print("아이디를 입력하세요 : ");
-        int inputId = scanner.nextInt();
+        int inputId = new view().getId();
 
         UserRepository userRepository = new UserRepository();
         User user = userRepository.findById(inputId);
@@ -17,22 +13,36 @@ public class AgeSimulation02 {
 
         boolean isBirthDay = ageCalculator.isBirthDay(user.getBirth());
         int age = ageCalculator.getAge(user.getBirth());
-
-        System.out.println(user.getName() + "(" + age + ")");
-
-        if (isBirthDay) {
-            // System.out.printf("%d세의 생일을 축하합니다.\n", age);
-            System.out.printf("%d번째 생일을 축하합니다.\n", age);
-        }
-
         boolean isUnderAge = ageCalculator.isUnderAge(user.getBirth());
 
-        if (isUnderAge) {
-            System.out.println("미성년자입니다.");
-        } else {
-            System.out.println("성인입니다.");
+        new view().checkBirth(user.getName(), isBirthDay, age);
+        new view().checkId(isUnderAge);
+    }
+
+    public static class view {
+        public int getId(){
+            Scanner scanner = new Scanner(System.in);
+            System.out.print("아이디를 입력하세요 : ");
+            int inputId = scanner.nextInt();
+            return inputId;
+        }
+
+        public void checkBirth(String userName, boolean isBirthDay, int age){
+            System.out.println(userName + "(" + age + ")");
+            if (isBirthDay) {
+                System.out.printf("%d번째 생일을 축하합니다.\n", age);
+            }
+        }
+
+        public void checkId(boolean isUnderAge){
+            if (isUnderAge) {
+                System.out.println("미성년자입니다.");
+            } else {
+                System.out.println("성인입니다.");
+            }
         }
     }
+
 
     public static class User {
         private String name;
