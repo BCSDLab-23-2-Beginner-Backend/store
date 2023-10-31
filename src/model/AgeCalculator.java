@@ -2,7 +2,7 @@ package model;
 
 import java.time.LocalDate;
 
-class AgeCalculator {
+public class AgeCalculator {
 
     public boolean isUnderAge(LocalDate birth) {
         int age = getAge(birth);
