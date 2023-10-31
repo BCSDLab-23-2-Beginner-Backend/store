@@ -5,6 +5,21 @@ import java.util.Scanner;
 
 public class AgeSimulation02 {
 
+    public static void main(String[] args) {
+
+        int inputId = new view().getId();
+
+        UserRepository userRepository = new UserRepository();
+        User user = userRepository.findById(inputId);
+        AgeCalculator ageCalculator = new AgeCalculator();
+
+        boolean isBirthDay = ageCalculator.isBirthDay(user.getBirth());
+        int age = ageCalculator.getAge(user.getBirth());
+        boolean isUnderAge = ageCalculator.isUnderAge(user.getBirth());
+
+        new view().checkBirth(user.getName(), isBirthDay, age);
+        new view().checkId(isUnderAge);
+    }
     public static class view{
         public int getId(){
             Scanner scanner = new Scanner(System.in);
@@ -29,22 +44,6 @@ public class AgeSimulation02 {
         }
 
     }
-    public static void main(String[] args) {
-
-        int inputId = new view().getId();
-
-        UserRepository userRepository = new UserRepository();
-        User user = userRepository.findById(inputId);
-        AgeCalculator ageCalculator = new AgeCalculator();
-
-        boolean isBirthDay = ageCalculator.isBirthDay(user.getBirth());
-        int age = ageCalculator.getAge(user.getBirth());
-        boolean isUnderAge = ageCalculator.isUnderAge(user.getBirth());
-
-        new view().checkBirth(user.getName(), isBirthDay, age);
-        new view().checkId(isUnderAge);
-    }
-
     public static class User {
         private final String name;
         private final LocalDate birth;
