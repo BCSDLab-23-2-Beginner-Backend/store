@@ -9,7 +9,7 @@ import view.OutputView;
 public class AgeCalculatorController {
     public AgeCalculatorController(){
         User user = userRepository.findById(inputView.InputID());
-        outputView.showinfo(user.getName(), ageCalculator.getAge(user.getBirth()));
+        outputView.showinfo(user.getName(), ageCalculator.getAge(user.getBirth())); //이름과 나이 출력되는 view
 
         if(ageCalculator.isBirthDay(user.getBirth())){ //생일일때 출력되는 view
             outputView.showBirthday(ageCalculator.getAge(user.getBirth()));
