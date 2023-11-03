@@ -8,22 +8,21 @@ import view.OutputView;
 
 public class AgeCalculatorController {
     public AgeCalculatorController(){
+        //유저 입력
         User user = userRepository.findById(inputView.InputID());
-        outputView.showinfo(user.getName(), ageCalculator.getAge(user.getBirth())); //이름과 나이 출력되는 view
 
-        if(ageCalculator.isBirthDay(user.getBirth())){ //생일일때 출력되는 view
-            outputView.showBirthday(ageCalculator.getAge(user.getBirth()));
-        }
+        //유저 상세 정보
+        String name = user.getName(); //유저 이름
+        int age = ageCalculator.getAge(user.getBirth()); //유저 나이
+        Boolean isBirthday = ageCalculator.isBirthDay(user.getBirth()); //유저 생일 여부
+        Boolean isUnderAGe = ageCalculator.isUnderAge(user.getBirth()); //유저 성인 여부
 
-        if(ageCalculator.isUnderAge(user.getBirth())){ //미성년자인지 성인인지 구분해서 출력되는 view
-            outputView.showNotAdult();
-        } else outputView.showAdult();
-
+        //출력
+        outputView.showOutputView(name,age,isBirthday,isUnderAGe);
     }
 
     UserRepository userRepository = new UserRepository();
     AgeCalculator ageCalculator = new AgeCalculator();
     InputView inputView = new InputView();
     OutputView outputView = new OutputView();
-
 }
