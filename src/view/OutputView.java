@@ -1,7 +1,4 @@
 package view;
-
-import model.User;
-
 public class OutputView {
     public void showinfo(String name, int age){
         System.out.println(name + "(" + age + ")");
