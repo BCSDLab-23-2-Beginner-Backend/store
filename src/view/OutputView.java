@@ -1,23 +1,14 @@
 package view;
 
-import model.AgeCalculator;
-import model.User;
-
-import java.time.LocalDate;
-
 public class OutputView {
-    public void nameAge(User user, AgeCalculator ageCalculator) {
-        LocalDate birth = user.getBirth();
-        int age = ageCalculator.getAge(birth);
-        String name = user.getName();
-
+    public void nameAge(String name, int age, boolean isBirthDay, boolean isUnderAge) {
         System.out.println(name + "(" + age + ")");
 
-        if (ageCalculator.isBirthDay(birth)) {
+        if (isBirthDay) {
             System.out.printf("%d번째 생일을 축하합니다.\n", age);
         }
 
-        if (ageCalculator.isUnderAge(birth)) {
+        if (isUnderAge) {
             System.out.println("미성년자입니다.");
         } else {
             System.out.println("성인입니다.");
