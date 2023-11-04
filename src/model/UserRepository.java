@@ -6,7 +6,7 @@ import java.util.Map;
 
 public class UserRepository {
     private static int sequence = 0;
-    private static Map<Integer, User> users = new HashMap<>();
+    private static final Map<Integer, User> users = new HashMap<>();
 
     public UserRepository() {
         users.put(++sequence, new User("홍길동", LocalDate.of(1990, 1, 1)));
