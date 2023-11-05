@@ -2,7 +2,6 @@ package view;
 
 
 
-
 public class OutputView {
     public void displayUserInfo(String name, int age, boolean isBirthDay, boolean isUnderAge) {
         System.out.println(name + "(" + age + ")");
