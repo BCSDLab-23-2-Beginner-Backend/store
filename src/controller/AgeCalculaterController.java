@@ -26,6 +26,6 @@ public class AgeCalculaterController {
         boolean isBirthDay = ageCalculater.isBirthDay(birth);
         boolean isUnderAge = ageCalculater.isUnderAge(birth);
         int age = ageCalculater.getAge(birth);
-        outputView.displayUserInfo(user, age, isUnderAge, isBirthDay);
+        outputView.displayUserInfo(user.getName(), age, isUnderAge, isBirthDay);
     }
 }
