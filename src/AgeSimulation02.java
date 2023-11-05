@@ -59,7 +59,7 @@ public class AgeSimulation02 {
         public UserRepository() {
             users.put(++sequence, new User("홍길동", LocalDate.of(1990, 1, 1)));
             users.put(++sequence,
-                new User("박한수", LocalDate.of(2000, LocalDate.now().getMonth(), LocalDate.now().getDayOfMonth())));
+                    new User("박한수", LocalDate.of(2000, LocalDate.now().getMonth(), LocalDate.now().getDayOfMonth())));
             users.put(++sequence, new User("강호동", LocalDate.of(2005, 6, 1)));
         }
 
