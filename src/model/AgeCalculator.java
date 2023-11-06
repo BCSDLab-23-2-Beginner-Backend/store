@@ -1,7 +1,6 @@
 package model;
 
 import java.time.LocalDate;
-
 public class AgeCalculator {
 
     public boolean isUnderAge(LocalDate birth) {
@@ -16,6 +15,9 @@ public class AgeCalculator {
         // age += isOverBirthDay(now, birth) ? 1 : 0;
         return age;
     }
+
+
+
     public boolean isBirthDay(LocalDate birth) {
         LocalDate now = LocalDate.now();
         return now.getMonthValue() == birth.getMonthValue() && now.getDayOfMonth() == birth.getDayOfMonth();
